@@ -8118,7 +8118,7 @@ function fixMarkerLabel(event) {
     let origWidth = event.renderingContext.measureText(label).width;
     label = label.replace(cutAfterDot, '$1');
     let width = event.renderingContext.measureText(label).width;
-    event.renderingContext.fillText(label, event.data.rect.pos.x + (origWidth - width)/2, event.data.rect.pos.y);    
+    event.renderingContext.fillText(label, event.data.rect.pos.x + (origWidth - width), event.data.rect.pos.y);    
   	event.preventDefault();
 }; 
 
