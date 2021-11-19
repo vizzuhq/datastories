@@ -3,7 +3,7 @@ import Vizzu from 'https://cdn.jsdelivr.net/npm/vizzu@0.3.2/dist/vizzu.min.js';
 let slider = document.getElementById("myRange");
 
 let step = 0;
-let targetstep = 14;
+let targetstep = -1;
 
 let data = {
 	series: [
@@ -8440,7 +8440,7 @@ chart.initializing.then( //Initial state - 1st bubble - Dinosaurs - zero - phase
 						label: {color: null, paddingRight: -375}
 
 					},
-					marker: {label: {fontSize: '100%'}},
+					marker: {label: {fontSize: null, paddingRight: null}},
 
 				}
 			},	
@@ -8584,6 +8584,13 @@ chart.initializing.then( //Initial state - 1st bubble - Dinosaurs - zero - phase
 			{
 				title: 'The two extremes: Denmark & Romania',
 			},
+			style:
+			{
+				plot: {
+					marker: {label:{fontSize: "20px"}},
+					yAxis: {label: {fontSize: "20px"}},
+				}
+			},
 		},
 				{
 					duration: step++ < targetstep ?'100ms':'2'
@@ -8625,6 +8632,10 @@ chart.initializing.then( //Initial state - 1st bubble - Dinosaurs - zero - phase
 				title: 'Answers by age groups (%)',
 				label: ['Virus[%]']
 			},
+			style: 	{			plot: {
+				marker: {label:{fontSize: null}},
+				yAxis: {label: {fontSize: null}},
+			},},
 		},
 		{duration: step++ < targetstep ?'100ms':'2'
 		//			duration: 0.1,
