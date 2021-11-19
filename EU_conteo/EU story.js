@@ -3,7 +3,7 @@ import Vizzu from 'https://cdn.jsdelivr.net/npm/vizzu@0.3.2/dist/vizzu.min.js';
 let slider = document.getElementById("myRange");
 
 let step = 0;
-let targetstep = -1;
+let targetstep = 14;
 
 let data = {
 	series: [
@@ -8162,8 +8162,10 @@ chart.initializing.then( //Initial state - 1st bubble - Dinosaurs - zero - phase
 				marker: {
 					circleMaxRadius: 0.06,
 					label: { position: 'left',
-					fontSize: '24',
-					fontFamily: 'Roboto'
+					fontSize: '24px',
+					fontFamily: 'Roboto Light',
+					fontStyle: 'normal',
+					paddingRight: 30
 
 				},
 					colorPalette: '#4171cd #f4c204 #DA000C ' ,
@@ -8182,9 +8184,10 @@ chart.initializing.then( //Initial state - 1st bubble - Dinosaurs - zero - phase
 
 	},
 			{
-				duration: step++ < targetstep ?'100ms':'2'
+				duration: step++ < targetstep ?'100ms':'2',
 		//		duration: 0.1,
 //				delay: 2,
+				x: {easing:'linear'}
 			},
 			
 	))
@@ -8201,9 +8204,11 @@ chart.initializing.then( //Initial state - 1st bubble - Dinosaurs - zero - phase
 				size: { set: 'All[m]', range: {max: 100}},
 			},
 		},
-			{duration: step++ < targetstep ?'100ms':'2'
+			{duration: step++ < targetstep ?'100ms':'2',
 		//			duration: 0.1,
 		//			delay: 2,
+		x: {easing:'linear'},
+		y: {easing:'linear'}
 				},
 		)
 	)
@@ -8432,9 +8437,10 @@ chart.initializing.then( //Initial state - 1st bubble - Dinosaurs - zero - phase
 			style: {
 				plot: {
 					yAxis: {
-						label: {color: null, paddingRight: -350}
+						label: {color: null, paddingRight: -375}
 
-					}
+					},
+					marker: {label: {fontSize: '100%'}},
 
 				}
 			},	
@@ -8460,10 +8466,16 @@ chart.initializing.then( //Initial state - 1st bubble - Dinosaurs - zero - phase
 			{
 				x: { set: ['Virus[m]', 'Answer'], range: { min: '-86.25%', max: '120%' }},
 				label: ['Virus[m]'],
+				legend: 'color',
 
 			},
 			style: {
 				plot: {
+					paddingLeft: '6.666667em',
+					yAxis: {
+						color: '#FFFFFF00'
+	
+					},
 					marker: {
 						label: { position: 'right'},
 					}
@@ -8487,14 +8499,13 @@ chart.initializing.then( //Initial state - 1st bubble - Dinosaurs - zero - phase
 			{
 				x: { set: ['Virus[m]', 'Answer'], range: {min: 'auto', max: '100%'}},
 				split: true,
-				legend: 'color',
 				title: "Answers to: Viruses Have Been Produced in Government Laboratories (m)"
 			},
 			style: {
-				plot: {
-					paddingLeft: '6.666667em',			
+				plot: {			
 					yAxis: {
-						label: {paddingRight: null }
+						label: {paddingRight: null },
+						color: '#FFFFFF00'
 	
 					},
 				},
@@ -8502,8 +8513,11 @@ chart.initializing.then( //Initial state - 1st bubble - Dinosaurs - zero - phase
 			},
 		},
 				{	
-					duration: step++ < targetstep ?'100ms':'2',
+					duration: step++ < targetstep ?'100ms':'2', delay: 1,
 			//		delay: 2,
+			legend: {delay: 2, duration: 1},	
+			style: {delay: 0, duration:2, easing:'ease-in-out'},
+				x: {delay: 0, duration:2, easing:'ease-in-out'},
 				},
 			
 		)
