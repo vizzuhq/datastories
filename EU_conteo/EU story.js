@@ -3,7 +3,7 @@ import Vizzu from 'https://vizzu-lib-main.storage.googleapis.com/lib/vizzu.js';
 let slider = document.getElementById("myRange");
 
 let step = 0;
-let targetstep = 7;
+let targetstep = -1;
 
 let data = {
 	series: [
