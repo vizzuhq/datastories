@@ -3,7 +3,7 @@ import Vizzu from 'https://vizzu-lib-main.storage.googleapis.com/lib/vizzu.js';
 let slider = document.getElementById("myRange");
 
 let step = 0;
-let targetstep = -1;
+let targetstep = 7;
 
 let data = {
 	series: [
@@ -8162,6 +8162,7 @@ chart.initializing.then( //Initial state - 1st bubble - Population
 				},
 				xAxis: {
 					title: {color: '#FFFFFF00'},
+					label: {color: '#FFFFFF00'},
 
 				}
 			}
@@ -8262,6 +8263,7 @@ chart.initializing.then( //Initial state - 1st bubble - Population
 				title: "People Thinking That Viruses Have Been Produced in Government Laboratories (m)",
 
 			},
+			style: {plot:{yAxis:{interlacing: { color:  '#FFFFFF00' },}}}
 		},
 			
 		{duration: step++ < targetstep ?'100ms':'2'
@@ -8289,8 +8291,10 @@ chart.initializing.then( //Initial state - 1st bubble - Population
 			style: {
 				plot: {
 					yAxis: {
-						label: {color: null}
+						label: {color: null, paddingRight: -350}
+
 					}
+
 				}
 			},	
 		},	
@@ -8348,7 +8352,12 @@ chart.initializing.then( //Initial state - 1st bubble - Population
 			style: {
 				plot: {
 					paddingLeft: '6.666667em',			
-				}
+					yAxis: {
+						label: {paddingRight: null }
+	
+					},
+				},
+				
 			},
 		},
 				{	
@@ -8377,6 +8386,9 @@ chart.initializing.then( //Initial state - 1st bubble - Population
 			},
 			style: {
 				plot: {
+					xAxis:{
+						label: {color: null }
+					},
 					marker: {
 						label: { position: 'center'},
 					}
