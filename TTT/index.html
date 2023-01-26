@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Vizzu library example</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+	</head>
+<body>
+	<noscript>
+		<p class="noscript">To use Vizzu, please enable Javascript.</p>
+	</noscript>
+
+	<div id="vizzuCanvas" style="width:640px; height:360px;"></div>
+
+	<select name="split" id="split">
+		<option value="Stack">Stack</option>
+		<option value="Percent">Percent</option>
+		<option value="Split">Split</option>
+	</select>
+
+	<select name="categories" id="categories">
+		<option value="Types">Types</option>
+		<option value="Tools">Tools</option>
+		<option value="Trump">Trump?</option>
+	</select>
+
+	<select name="tweets" id="tweets">
+		<option value="Tweets">Tweets</option>
+		<option value="Shared">Shared</option>
+	</select>
+
+	<select name="axis" id="axis">
+		<option value="Timeline">Timeline</option>
+		<option value="Total">Total</option>
+		<option value="TOTD">Time of the day</option>
+	</select>
+
+	<select name="period" id="period">
+		<option value="All periods">All periods</option>
+		<option value="Newbie">Newbie</option>
+		<option value="Businessman">Businessman</option>
+		<option value="Nominee">Nominee</option>
+		<option value="President">President</option>
+	</select>
+
+	<script type="module" src="app.js"></script>
+</body>
+</html>
