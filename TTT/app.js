@@ -3,6 +3,10 @@ import Vizzu from 'https://vizzu-lib-main.storage.googleapis.com/lib/vizzu.js';
 
 let data = { series: [], records: [] };
 
+let typesPalette = "#A0CDEBFF #60C0E6FF #1DA1F3FF";
+let toolsPalette = "#597696FF #ED2828FF #26EC87FF #29B9BFFF";
+let trumpPalette = "#E9161FFF #DD7D79FF #D7AFA5FF #E3BCA0FF #FBC87BFF";
+
 data.records = await d3.csv("trump_2020_05 - trump_2020_05.csv");
 
 data.series = Object.keys(data.records[0]).slice(0,11).map(name => ({ 
@@ -13,13 +17,14 @@ data.series = Object.keys(data.records[0]).slice(0,11).map(name => ({
 let config = {
 	align: 'center',
 	split: 'false',
-	category: 'DidTTI result',
+	category: 'Tweet type',
 	measure: 'tweetvalue',
 	coordSystem: 'cartesian',
 	geometry: 'area',
 	filter: null,
 	y: ()=>[config.measure, config.category],
-	x: ()=>['year','month']
+	x: ()=>['year','month'],
+	colorPalette: typesPalette
 };
 
 for (let i = 0; i < data.records.length; i++)
@@ -41,8 +46,16 @@ function update()
 			align: config.align,
 			split: config.split,
 			coordSystem: config.coordSystem
+		},
+		style: {
+			plot: {
+				marker: {
+					colorPalette: config.colorPalette
+				}
+			}
 		}
-	});
+	}, 
+	{ regroupStrategy: 'drilldown' });
 }
 
 let splitInput = document.getElementById("split");
@@ -73,14 +86,17 @@ categoryInput.addEventListener("input", event => {
 	{
 		case 'Types':
 			config.category = 'Tweet type';
+			config.colorPalette = typesPalette;
 			break;
 
 		case 'Tools':
 			config.category = 'Tool category';
+			config.colorPalette = toolsPalette;
 			break;
 			
 		case 'Trump':
 			config.category = 'DidTTI result';
+			config.colorPalette = trumpPalette;
 			break;
 	}
 	update();
